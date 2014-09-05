@@ -1,6 +1,6 @@
 <ul>
 
-  <% @links.each do |link| %>
+  <% @links.sort_by_score.each do |link| %>
 
     <li>
       <%= link_to "Upvote", "/links/#{link.id}/upvote", method: 'patch'%>
