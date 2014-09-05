@@ -13,4 +13,26 @@ describe Link do
       expect(test_link.votes).to eq 1
     end
   end
+
+  it "orders the links by the number of votes they have" do
+    test_link1 = Link.create(name: "test", url: "www.test.com", description: "more tests")
+    test_link1.upvote
+    test_link2 = Link.create(name: "test", url: "www.test.com", description: "more tests")
+    test_link2.upvote
+    test_link2.upvote
+    test_link2.upvote
+    expect(Link.order(:votes).reverse).to eq [test_link2, test_link1]
+  end
+
+  describe "sort_by_score" do
+    it "orders links by an arbitrary score based on votes and most recent posts" do
+      test_link1 = Link.create(name: "test", url: "www.test.com", description: "more tests")
+      test_link1.upvote
+      test_link2 = Link.create(name: "test", url: "www.test.com", description: "more tests")
+      test_link2.upvote
+      test_link2.upvote
+      test_link2.upvote
+      expect(Link.sort_by_score).to eq [test_link2, test_link1]
+    end
+  end
 end
