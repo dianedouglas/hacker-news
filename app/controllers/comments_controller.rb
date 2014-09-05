@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to link_path(@comment.link), notice: "Comment updated! Congrats!"
+      redirect_to link_path(@comment.post), notice: "Comment updated! Congrats!"
     else
       render 'edit'
     end
