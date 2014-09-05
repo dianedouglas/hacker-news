@@ -1,0 +1,13 @@
+<h1>Hacker News</h1>
+
+<ul>
+
+  <% @links.each do |link| %>
+    <li> <p> <%= link.name %> </p>
+      <p> <%= link.url %> </p>
+    </li>
+  <% end %>
+
+</ul>
+
+<%= link_to "Submit Link", new_link_path, class: "btn btn-success" %>
