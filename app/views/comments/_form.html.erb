@@ -1,6 +1,6 @@
 <%= render('layouts/errors', :object => @comment) %>
 
-<%= form_for [@link, @comment] do |f| %>
+<%= form_for [@comment.link, @comment] do |f| %>
   <div class="form-group">
     <%= f.label :description %>
     <%= f.text_area :description %>

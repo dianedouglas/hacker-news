@@ -7,7 +7,7 @@
 <% if @link.comments.length > 0 %>
 <h5>Comments</h5>
   <% @link.comments.each do |comment| %>
-    <li><%= comment.description %> <%= link_to "(remove)", link_comment_path(@link, comment), method: "delete" %></li>
+    <li><%= comment.description %> <%= link_to "(remove)", link_comment_path(@link, comment), method: "delete" %><%= link_to "(edit)", edit_link_comment_path(@link, comment) %></li>
   <% end %>
 <% end %>
 <br>

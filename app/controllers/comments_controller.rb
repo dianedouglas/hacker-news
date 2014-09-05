@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def new
     @link = Link.find(params[:link_id])
-    @comment = Comment.new
+    @comment = @link.comments.new
   end
 
   def create
@@ -19,6 +19,20 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to link_path(@link), notice: "New comment destroyed! Way to go!"
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+    render 'edit'
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to link_path(@comment.link), notice: "Comment updated! Congrats!"
+    else
+      render 'edit'
+    end
   end
 
   private
