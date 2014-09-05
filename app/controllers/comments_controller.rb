@@ -14,6 +14,13 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @link = Link.find(params[:link_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to link_path(@link), notice: "New comment destroyed! Way to go!"
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:description)
