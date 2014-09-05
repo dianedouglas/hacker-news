@@ -3,7 +3,7 @@
 <ul>
 
   <% @links.each do |link| %>
-    <li> <p> <%= link.name %> </p>
+    <li> <p> <%= link_to link.name, link_path(link) %> </p>
       <p> <%= link.url %> </p>
     </li>
   <% end %>
