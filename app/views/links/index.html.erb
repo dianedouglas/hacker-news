@@ -1,7 +1,11 @@
 <ul>
 
   <% @links.each do |link| %>
-    <li> <p> <%= link_to link.name, link_path(link) %> </p>
+
+    <li>
+      <%= link_to "Upvote", "/links/#{link.id}/upvote", method: 'patch'%>
+      <p> Upvotes: <%= link.votes %> </p>
+      <p> <%= link_to link.name, link_path(link) %> </p>
       <p> <%= link.url %> </p>
     </li>
   <% end %>
