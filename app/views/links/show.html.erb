@@ -2,3 +2,5 @@
 <h5><%= @link.url %></h5>
 <hr>
 <p><%= @link.description %></p>
+
+<%= link_to "Delete", link_path(@link), method: "delete", class: 'btn btn-warning' %>
