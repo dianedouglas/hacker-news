@@ -1,0 +1,7 @@
+<h3><%= @link.name %></h3>
+<h5><%= @link.url %></h5>
+<hr>
+<p><%= @link.description %></p>
+
+<%= link_to "Edit", edit_link_path(@link), class: 'btn btn-info' %>
+<%= link_to "Delete", link_path(@link), method: "delete", class: 'btn btn-danger' %>

@@ -3,5 +3,15 @@
 <hr>
 <p><%= @link.description %></p>
 
+<hr>
+<% if @link.comments.length > 0 %>
+<h5>Comments</h5>
+  <% @link.comments.each do |comment| %>
+    <li><%= comment.description %></li>
+  <% end %>
+<% end %>
+<br>
+<br>
+<%= link_to "Comment", new_link_comment_path(@link), class: 'btn btn-success' %>
 <%= link_to "Edit", edit_link_path(@link), class: 'btn btn-info' %>
 <%= link_to "Delete", link_path(@link), method: "delete", class: 'btn btn-danger' %>
