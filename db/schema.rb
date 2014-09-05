@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905181608) do
+ActiveRecord::Schema.define(version: 20140905192929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
     t.string   "description"
-    t.integer  "link_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "post_id"
+    t.string   "post_type"
   end
 
   create_table "links", force: true do |t|

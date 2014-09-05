@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-  has_many :comments
+  has_many :comments, as: :post
   validates :name, presence: true
   validates :url, presence: true
   validates :description, presence: true
