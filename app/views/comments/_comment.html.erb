@@ -1,0 +1,10 @@
+<ul>
+  <% post.comments.each do |comment| %>
+    <li><%= comment.description %>
+      <%= link_to "(remove)", link_comment_path(@link, comment), method: "delete" %>
+      <%= link_to "(edit)", edit_link_comment_path(@link, comment) %>
+      <%= link_to "(comment)", "/comments/#{comment.id}/comments/new" %>
+      <%= render 'comments/comment', :post => comment %>
+    </li>
+  <% end %>
+</ul>
